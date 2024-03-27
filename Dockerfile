@@ -7,7 +7,8 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+#COPY . /app
+COPY app.py /app
 
 # Define environment variable for the app version
 ENV APP_VERSION v0.0.1
