@@ -1,12 +1,19 @@
-def print_app_version(version):
-    """
-    Print the current app version and exit the application.
-    """
-    print(f"Current app version: {version}")
-    exit()
+from flask import Flask, jsonify
 
+# Initialize Flask application
+app = Flask(__name__)
 
-if __name__ == "__main__":
-    
-    app_version = "v0.0.1"
-    print_app_version(app_version)
+# Define the version of the app
+APP_VERSION = "v0.0.1"
+
+# Define route for the /version endpoint
+@app.route('/version')
+def get_version():
+    """
+    Returns the version of the deployed app.
+    """
+    return jsonify({"version": APP_VERSION})
+
+if __name__ == '__main__':
+    # Run the Flask application
+    app.run(debug=True)
