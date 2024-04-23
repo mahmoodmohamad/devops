@@ -1,17 +1,4 @@
-# Use an official Python runtime as a parent image
+FROM alpine
+RUN apk add --update redis
 
-FROM python:3.9-slim
-
-# Set the working directory in the container
-
-WORKDIR /app
-
-# Copy the current directory contents into the container at /app
-#COPY . /app
-COPY app.py /app
-
-# Define environment variable for the app version
-ENV APP_VERSION v0.0.1
-
-# Run app.py when the container launches
-CMD [ "python", "app.py" ]
+CMD [ "redis server" ]
